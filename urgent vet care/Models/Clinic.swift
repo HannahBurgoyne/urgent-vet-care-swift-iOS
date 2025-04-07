@@ -12,8 +12,17 @@ struct Clinic: Identifiable, Codable {
     var formattedAddress: String
     var rating: Double?
     var openingHours: OpeningHours?
+    var location: Location
+    var placeId: String
+    var businessStatus: String
 
     struct OpeningHours: Codable {
         var openNow: Bool
     }
+
+    struct Location: Codable {
+        var lat: Double
+        var lng: Double
+    }
 }
+
