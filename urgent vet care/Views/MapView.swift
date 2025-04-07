@@ -19,7 +19,7 @@ struct MapView: View {
     var body: some View {
         Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: clinics) { clinic in
             // Add MapAnnotation for each clinic
-            MapPin(coordinate: CLLocationCoordinate2D(latitude: clinic.location.lat, longitude: clinic.location.lng), tint: .blue)
+            MapPin(coordinate: CLLocationCoordinate2D(latitude: clinic.location.lat, longitude: clinic.location.lng), tint: .red)
         }
         .onAppear {
             region.center = userLocation.coordinate
