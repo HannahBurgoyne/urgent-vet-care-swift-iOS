@@ -35,14 +35,14 @@
 			path = "urgent vet care";
 			sourceTree = "<group>";
 		};
-		668C33E92DA35DA800B1DDD4 /* urgent vet careTests */ = {
+		668C33E92DA35DA800B1DDD4 /* Tests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "urgent vet careTests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		668C33F32DA35DA800B1DDD4 /* urgent vet careUITests */ = {
+		668C33F32DA35DA800B1DDD4 /* UITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "urgent vet careUITests";
+			path = UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,8 +76,8 @@
 			isa = PBXGroup;
 			children = (
 				668C33DA2DA35DA700B1DDD4 /* urgent vet care */,
-				668C33E92DA35DA800B1DDD4 /* urgent vet careTests */,
-				668C33F32DA35DA800B1DDD4 /* urgent vet careUITests */,
+				668C33E92DA35DA800B1DDD4 /* Tests */,
+				668C33F32DA35DA800B1DDD4 /* UITests */,
 				668C33D92DA35DA700B1DDD4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 				668C33E82DA35DA800B1DDD4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				668C33E92DA35DA800B1DDD4 /* urgent vet careTests */,
+				668C33E92DA35DA800B1DDD4 /* Tests */,
 			);
 			name = "urgent vet careTests";
 			packageProductDependencies = (
@@ -154,7 +154,7 @@
 				668C33F22DA35DA800B1DDD4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				668C33F32DA35DA800B1DDD4 /* urgent vet careUITests */,
+				668C33F32DA35DA800B1DDD4 /* UITests */,
 			);
 			name = "urgent vet careUITests";
 			packageProductDependencies = (
