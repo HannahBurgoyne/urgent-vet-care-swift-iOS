@@ -29,22 +29,9 @@
 		668C33F02DA35DA800B1DDD4 /* urgent vet careUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "urgent vet careUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		6690A2BF2DA38F0500607E47 /* Exceptions for "urgent vet care" folder in "urgent vet care" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"urgent-vet-care-Info.plist",
-			);
-			target = 668C33D72DA35DA700B1DDD4 /* urgent vet care */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		668C33DA2DA35DA700B1DDD4 /* urgent vet care */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				6690A2BF2DA38F0500607E47 /* Exceptions for "urgent vet care" folder in "urgent vet care" target */,
-			);
 			path = "urgent vet care";
 			sourceTree = "<group>";
 		};

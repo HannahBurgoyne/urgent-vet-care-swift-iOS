@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var clinics: [Clinic] = []  // Store the list of clinics
-    @State private var isLoading = true        // Loading state
-    @StateObject private var locationManager = LocationManager() // Location manager for user location
+    @State private var clinics: [Clinic] = []
+    @State private var isLoading = true
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         NavigationView {
@@ -13,9 +13,8 @@ struct ContentView: View {
                         .progressViewStyle(CircularProgressViewStyle())
                         .padding()
                 } else {
-                    // Pass the userLocation to the MapView
                     if let userLocation = locationManager.userLocation {
-                        MapView(userLocation: userLocation)
+                        MapView(userLocation: userLocation, clinics: clinics) 
                     } else {
                         Text("Fetching location...")
                             .padding()
@@ -45,4 +44,3 @@ struct ContentView: View {
         }
     }
 }
-
