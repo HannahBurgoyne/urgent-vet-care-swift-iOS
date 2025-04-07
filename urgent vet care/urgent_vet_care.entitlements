@@ -6,5 +6,9 @@
     <true/>
     <key>com.apple.security.files.user-selected.read-only</key>
     <true/>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We need your location to show nearby vet clinics even when the app is in the background.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need your location to show nearby vet clinics.</string>
 </dict>
 </plist>

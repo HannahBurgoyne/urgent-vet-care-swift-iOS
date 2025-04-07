@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		668C340D2DA3690D00B1DDD4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 668C340C2DA3690700B1DDD4 /* Info.plist */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		668C33E72DA35DA800B1DDD4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -31,7 +27,6 @@
 		668C33D82DA35DA700B1DDD4 /* urgent vet care.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "urgent vet care.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		668C33E62DA35DA800B1DDD4 /* urgent vet careTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "urgent vet careTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		668C33F02DA35DA800B1DDD4 /* urgent vet careUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "urgent vet careUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		668C340C2DA3690700B1DDD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -80,7 +75,6 @@
 		668C33CF2DA35DA700B1DDD4 = {
 			isa = PBXGroup;
 			children = (
-				668C340C2DA3690700B1DDD4 /* Info.plist */,
 				668C33DA2DA35DA700B1DDD4 /* urgent vet care */,
 				668C33E92DA35DA800B1DDD4 /* Tests */,
 				668C33F32DA35DA800B1DDD4 /* UITests */,
@@ -218,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				668C340D2DA3690D00B1DDD4 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
