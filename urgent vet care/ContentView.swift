@@ -1,15 +1,9 @@
-//
-//  ContentView.swift
-//  urgent vet care
-//
-//  Created by Hannah Burgoyne on 07/04/2025.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     @State private var clinics: [Clinic] = []  // Store the list of clinics
     @State private var isLoading = true        // Loading state
+    @StateObject private var locationManager = LocationManager() // Location manager for user location
     
     var body: some View {
         NavigationView {
@@ -19,10 +13,18 @@ struct ContentView: View {
                         .progressViewStyle(CircularProgressViewStyle())
                         .padding()
                 } else {
-                    ClinicListView()
+                    // Pass the userLocation to the MapView
+                    if let userLocation = locationManager.userLocation {
+                        MapView(userLocation: userLocation)
+                    } else {
+                        Text("Fetching location...")
+                            .padding()
+                    }
                 }
             }
             .onAppear {
+                // Request location permissions here
+                locationManager.requestLocationPermission()
                 loadClinics()
             }
             .navigationTitle("Urgent Vet Care")
@@ -43,5 +45,4 @@ struct ContentView: View {
         }
     }
 }
-
 
