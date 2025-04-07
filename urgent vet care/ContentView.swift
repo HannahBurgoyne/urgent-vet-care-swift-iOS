@@ -8,17 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var clinics: [Clinic] = []  // Store the list of clinics
+    @State private var isLoading = true        // Loading state
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                if isLoading {
+                    ProgressView("Loading...")
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .padding()
+                } else {
+                    ClinicListView()
+                }
+            }
+            .onAppear {
+                loadClinics()
+            }
+            .navigationTitle("Urgent Vet Care")
         }
-        .padding()
+    }
+    
+    private func loadClinics() {
+        APIService.getClinics { result in
+            switch result {
+            case .success(let fetchedClinics):
+                clinics = fetchedClinics
+                isLoading = false
+            case .failure(let error):
+                // Handle the error, show an alert or something
+                print("Error fetching clinics: \(error)")
+                isLoading = false
+            }
+        }
     }
 }
 
-#Preview {
-    ContentView()
-}
+
