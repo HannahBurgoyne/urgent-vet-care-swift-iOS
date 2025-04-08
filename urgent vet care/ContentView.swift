@@ -4,7 +4,7 @@ struct ContentView: View {
     @State private var clinics: [Clinic] = []
     @State private var isLoading = true
     @StateObject private var locationManager = LocationManager()
-    
+
     var body: some View {
         NavigationView {
             VStack {
@@ -14,7 +14,27 @@ struct ContentView: View {
                         .padding()
                 } else {
                     if let userLocation = locationManager.userLocation {
-                        MapView(userLocation: userLocation, clinics: clinics) 
+                        ZStack {
+                            MapView(userLocation: userLocation, clinics: clinics)
+                                .edgesIgnoringSafeArea(.all)
+                            
+                            // Tab View always on top of the map
+                            TabView {
+                                // Map View Tab
+                                MapView(userLocation: userLocation, clinics: clinics)
+                                    .tabItem {
+                                        Label("Map", systemImage: "map.fill")
+                                    }
+                                
+                                // Clinic List View Tab
+                                ClinicListView(clinics: clinics)
+                                    .tabItem {
+                                        Label("Clinics", systemImage: "list.bullet")
+                                    }
+                            }
+                            .zIndex(1) // Ensure TabView stays on top
+                            .background(Color.white.opacity(0.8)) // Optional: background color for TabView
+                        }
                     } else {
                         Text("Fetching location...")
                             .padding()
@@ -22,14 +42,14 @@ struct ContentView: View {
                 }
             }
             .onAppear {
-                // Request location permissions here
+                // Request location permissions
                 locationManager.requestLocationPermission()
                 loadClinics()
             }
             .navigationTitle("Urgent Vet Care")
         }
     }
-    
+
     private func loadClinics() {
         APIService.getClinics { result in
             switch result {
@@ -37,7 +57,7 @@ struct ContentView: View {
                 clinics = fetchedClinics
                 isLoading = false
             case .failure(let error):
-                // Handle the error, show an alert or something
+                // Handle error (you can show an alert or message here)
                 print("Error fetching clinics: \(error)")
                 isLoading = false
             }
