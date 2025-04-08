@@ -23,7 +23,8 @@ class APIService {
                 completion(.success(mockDetails))
             }
         }
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: workItem)
+        // Less of a delay for the details so that the sheet pops up faster in MapView
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.2, execute: workItem)
 
     }
     

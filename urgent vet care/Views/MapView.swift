@@ -6,7 +6,7 @@ struct MapView: View {
     var clinics: [Clinic]
 
     @State private var region: MKCoordinateRegion
-    @State private var selectedClinicDetails: ClinicDetails? = nil
+    @State private var selectedClinic: ClinicItem? = nil 
 
     init(userLocation: CLLocation, clinics: [Clinic]) {
         self.userLocation = userLocation
@@ -25,25 +25,32 @@ struct MapView: View {
                     .frame(width: 30, height: 30)
                     .foregroundColor(.red)
                     .onTapGesture {
-                        fetchClinicDetails(id: Int(clinic.id) ?? 0)
+                        fetchClinicDetails(id: Int(clinic.id) ?? 0, coordinate: clinic.coordinate)
                     }
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .sheet(item: $selectedClinicDetails) { details in
-            ClinicDetailsSheet(clinic: details)
+        .sheet(item: $selectedClinic) { clinicItem in
+            ClinicDetailsSheet(coordinates: clinicItem.coordinates, clinic: clinicItem.details)
         }
     }
 
-    private func fetchClinicDetails(id: Int) {
+    private func fetchClinicDetails(id: Int, coordinate: CLLocationCoordinate2D) {
         APIService.getClinicDetails(id: id) { result in
             switch result {
             case .success(let details):
-                selectedClinicDetails = details
+                let clinicItem = ClinicItem(coordinates: coordinate, details: details)
+                selectedClinic = clinicItem
             case .failure(let error):
                 print("Error fetching clinic details: \(error)")
             }
         }
     }
+}
+
+struct ClinicItem: Identifiable {
+    var id = UUID()
+    var coordinates: CLLocationCoordinate2D
+    var details: ClinicDetails
 }
 

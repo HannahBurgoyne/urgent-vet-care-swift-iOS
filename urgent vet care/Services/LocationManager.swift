@@ -1,10 +1,3 @@
-//
-//  LocationManager.swift
-//  urgent vet care
-//
-//  Created by Hannah Burgoyne on 07/04/2025.
-//
-// LocationManager.swift
 import CoreLocation
 import SwiftUI
 
