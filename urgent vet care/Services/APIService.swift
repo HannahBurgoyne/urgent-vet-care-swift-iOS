@@ -14,4 +14,17 @@ class APIService {
         // Delaying the workItem execution by 1 second
         DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: workItem)
     }
+    
+    static func getClinicDetails(id: Int, completion: @escaping (Result<ClinicDetails, Error>) -> Void) {
+        let workItem = DispatchWorkItem {
+            let mockDetails = clinicDetails
+            
+            DispatchQueue.main.async {
+                completion(.success(mockDetails))
+            }
+        }
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0, execute: workItem)
+
+    }
+    
 }

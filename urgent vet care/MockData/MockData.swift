@@ -180,3 +180,34 @@ let clinics: [Clinic] = [
     )
 ]
 
+
+let clinicDetails = ClinicDetails(
+    id: "",
+    name: "Devonport Veterinary Centre",
+    openingHours: ClinicDetails.OpeningHours(
+        openNow: true,
+        periods: [
+            .init(open: .init(day: 1, time: "0800"), close: .init(day: 1, time: "1800")),
+            .init(open: .init(day: 2, time: "0800"), close: .init(day: 2, time: "1800")),
+            .init(open: .init(day: 3, time: "0800"), close: .init(day: 3, time: "1800")),
+            .init(open: .init(day: 4, time: "0800"), close: .init(day: 4, time: "1800")),
+            .init(open: .init(day: 5, time: "0800"), close: .init(day: 5, time: "1800")),
+            .init(open: .init(day: 6, time: "0900"), close: .init(day: 6, time: "1200"))
+        ],
+        weekdayText: [
+            "Monday: 8:00 AM – 6:00 PM",
+            "Tuesday: 8:00 AM – 6:00 PM",
+            "Wednesday: 8:00 AM – 6:00 PM",
+            "Thursday: 8:00 AM – 6:00 PM",
+            "Friday: 8:00 AM – 6:00 PM",
+            "Saturday: 9:00 AM – 12:00 PM",
+            "Sunday: Closed"
+        ]
+    ),
+    placeId: "ChIJw8lXsNE3DW0RoOO-tXtcMMQ",
+    rating: 5,
+    website: "www.website.co.nz",
+    formattedPhoneNumber: "09 445 3206",
+    formattedAddress: "1 Ewen Alison Avenue, Devonport, Auckland 0624, New Zealand"
+)
+

@@ -5,6 +5,8 @@
 //  Created by Hannah Burgoyne on 07/04/2025.
 //
 
+import MapKit
+
 
 struct Clinic: Identifiable, Codable {
     var id: String
@@ -13,8 +15,12 @@ struct Clinic: Identifiable, Codable {
     var rating: Double?
     var openingHours: OpeningHours?
     var location: Location
+    var coordinate: CLLocationCoordinate2D {
+          CLLocationCoordinate2D(latitude: location.lat, longitude: location.lng)
+      }
     var placeId: String
     var businessStatus: String
+    
 
     struct OpeningHours: Codable {
         var openNow: Bool
@@ -25,4 +31,6 @@ struct Clinic: Identifiable, Codable {
         var lng: Double
     }
 }
+
+
 
